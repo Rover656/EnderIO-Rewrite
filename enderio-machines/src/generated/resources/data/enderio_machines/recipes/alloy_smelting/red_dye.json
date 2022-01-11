@@ -1,0 +1,29 @@
+{
+  "type": "enderio_machines:alloy_smelting",
+  "ingredients": [
+    {
+      "items": {
+        "item": "minecraft:beetroot"
+      },
+      "count": 1
+    },
+    {
+      "items": {
+        "item": "minecraft:clay_ball"
+      },
+      "count": 3
+    },
+    {
+      "items": {
+        "item": "minecraft:egg"
+      },
+      "count": 6
+    }
+  ],
+  "result": {
+    "item": "minecraft:red_dye",
+    "count": 12
+  },
+  "energy": 15000,
+  "experience": 0.3
+}

@@ -75,8 +75,8 @@ public class MaterialRecipes extends RecipeProvider {
             .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.PULSATING_POWDER.get()))
             .save(recipeConsumer);
         
-        blockToIngots(recipeConsumer, EIOItems.ELECTRICAL_STEEL_INGOT.get(),EIOBlocks.ELECTRICAL_STEEL_BLOCK.get());
-        ingotToNuggets(recipeConsumer, EIOItems.ELECTRICAL_STEEL_NUGGET.get(), EIOItems.ELECTRICAL_STEEL_INGOT.get());
+        blockToIngots(recipeConsumer, EIOItems.COPPER_ALLOY_INGOT.get(),EIOBlocks.COPPER_ALLOY_BLOCK.get());
+        ingotToNuggets(recipeConsumer, EIOItems.COPPER_ALLOY_NUGGET.get(), EIOItems.COPPER_ALLOY_INGOT.get());
         blockToIngots(recipeConsumer, EIOItems.ENERGETIC_ALLOY_INGOT.get(),EIOBlocks.ENERGETIC_ALLOY_BLOCK.get());
         ingotToNuggets(recipeConsumer, EIOItems.ENERGETIC_ALLOY_NUGGET.get(), EIOItems.ENERGETIC_ALLOY_INGOT.get());
         blockToIngots(recipeConsumer, EIOItems.VIBRANT_ALLOY_INGOT.get(),EIOBlocks.VIBRANT_ALLOY_BLOCK.get());
@@ -200,6 +200,36 @@ public class MaterialRecipes extends RecipeProvider {
         upgradeGear(recipeConsumer, EIOItems.GEAR_VIBRANT.get(), EIOItems.GEAR_ENERGIZED.get(), EIOItems.VIBRANT_ALLOY_INGOT.get(), EIOItems.VIBRANT_ALLOY_NUGGET.get());
         upgradeGear(recipeConsumer, EIOItems.GEAR_DARK_STEEL.get(), EIOItems.GEAR_ENERGIZED.get(), EIOItems.DARK_STEEL_INGOT.get(), EIOItems.DARK_STEEL_NUGGET.get());
 
+        ShapedRecipeBuilder.shaped(EIOItems.BASIC_CAPACITOR.get())
+            .pattern(" NG")
+            .pattern("NIN")
+            .pattern("GN ")
+            .define('N', Tags.Items.NUGGETS_GOLD)
+            .define('G', EIOItems.GRAINS_OF_INFINITY.get())
+            .define('I', Tags.Items.INGOTS_COPPER)
+            .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.GRAINS_OF_INFINITY.get()))
+            .save(recipeConsumer);
+
+        ShapedRecipeBuilder.shaped(EIOItems.DOUBLE_LAYER_CAPACITOR.get())
+            .pattern(" I ")
+            .pattern("CDC")
+            .pattern(" I ")
+            .define('I', EIOItems.ENERGETIC_ALLOY_INGOT.get())
+            .define('C', EIOItems.BASIC_CAPACITOR.get())
+            .define('D', EIOTags.Items.DUSTS_COAL)
+            .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.BASIC_CAPACITOR.get()))
+            .save(recipeConsumer);
+
+        ShapedRecipeBuilder.shaped(EIOItems.OCTADIC_CAPACITOR.get())
+            .pattern(" I ")
+            .pattern("CGC")
+            .pattern(" I ")
+            .define('I', EIOItems.VIBRANT_ALLOY_INGOT.get())
+            .define('C', EIOItems.DOUBLE_LAYER_CAPACITOR.get())
+            .define('G', Items.GLOWSTONE)
+            .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.DOUBLE_LAYER_CAPACITOR.get()))
+            .save(recipeConsumer);
+
         ShapedRecipeBuilder.shaped(EIOItems.WEATHER_CRYSTAL.get())
             .pattern(" P ")
             .pattern("VEV")
@@ -233,7 +263,7 @@ public class MaterialRecipes extends RecipeProvider {
         grindingBall(recipeConsumer, EIOItems.REDSTONE_ALLOY_BALL.get(), EIOItems.REDSTONE_ALLOY_INGOT.get());
         grindingBall(recipeConsumer, EIOItems.ENERGETIC_ALLOY_BALL.get(), EIOItems.ENERGETIC_ALLOY_INGOT.get());
         grindingBall(recipeConsumer, EIOItems.VIBRANT_ALLOY_BALL.get(), EIOItems.VIBRANT_ALLOY_INGOT.get());
-        grindingBall(recipeConsumer, EIOItems.ELECTRICAL_STEEL_BALL.get(), EIOItems.ELECTRICAL_STEEL_INGOT.get());
+        grindingBall(recipeConsumer, EIOItems.COPPER_ALLOY_BALL.get(), EIOItems.COPPER_ALLOY_INGOT.get());
         grindingBall(recipeConsumer, EIOItems.END_STEEL_BALL.get(), EIOItems.END_STEEL_INGOT.get());
     }
 

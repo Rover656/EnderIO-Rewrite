@@ -2,13 +2,22 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "tag": "forge:dusts/redstone"
+      "items": {
+        "tag": "forge:dusts/redstone"
+      },
+      "count": 1
     },
     {
-      "tag": "forge:ingots/gold"
+      "items": {
+        "tag": "forge:ingots/gold"
+      },
+      "count": 1
     },
     {
-      "tag": "forge:dusts/glowstone"
+      "items": {
+        "tag": "forge:dusts/glowstone"
+      },
+      "count": 1
     }
   ],
   "result": {

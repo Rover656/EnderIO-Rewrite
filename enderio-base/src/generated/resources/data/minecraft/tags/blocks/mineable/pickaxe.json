@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "enderio:electrical_steel_block",
+    "enderio:copper_alloy_block",
     "enderio:energetic_alloy_block",
     "enderio:vibrant_alloy_block",
     "enderio:redstone_alloy_block",

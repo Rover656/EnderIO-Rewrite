@@ -5,6 +5,7 @@ import com.enderio.base.common.blockentity.sync.SyncMode;
 import com.enderio.base.common.util.UseOnly;
 import com.enderio.machines.common.MachineTier;
 import com.enderio.machines.common.block.ProgressMachineBlock;
+import com.enderio.machines.common.recipe.IMachineRecipe;
 import com.enderio.machines.common.recipe.MachineRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -120,10 +121,10 @@ public abstract class PoweredCraftingMachineEntity<R extends Recipe<Container>> 
      * Get the cost of crafting this recipe
      */
     protected int getEnergyCost(R recipe) {
-        if (recipe instanceof MachineRecipe<?,?> machineRecipe) {
+        if (recipe instanceof IMachineRecipe<?,?> machineRecipe) {
             return machineRecipe.getEnergyCost();
         }
-        throw new NotImplementedException("Machine must implement getEnergyCost for types not implementing MachineRecipe");
+        throw new NotImplementedException("Machine must implement getEnergyCost for types not implementing IMachineRecipe.");
     }
 
     /**

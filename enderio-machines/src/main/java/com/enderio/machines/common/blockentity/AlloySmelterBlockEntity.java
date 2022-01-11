@@ -2,6 +2,7 @@ package com.enderio.machines.common.blockentity;
 
 import com.enderio.base.common.blockentity.sync.EnumDataSlot;
 import com.enderio.base.common.blockentity.sync.SyncMode;
+import com.enderio.base.common.recipe.EIOIngredient;
 import com.enderio.base.common.util.CapacitorUtil;
 import com.enderio.machines.common.MachineTier;
 import com.enderio.machines.common.blockentity.base.PoweredCraftingMachineEntity;
@@ -92,11 +93,10 @@ public class AlloySmelterBlockEntity extends PoweredCraftingMachineEntity<Recipe
 
     @Override
     protected void consumeIngredients(Recipe<Container> recipe) {
-        NonNullList<Ingredient> ingredients = getCurrentRecipe().getIngredients();
         ItemHandlerMaster itemHandler = getItemHandler();
-        if (recipe instanceof AlloySmeltingRecipe) {
+        if (recipe instanceof AlloySmeltingRecipe alloySmeltingRecipe) {
             for (int i = 0; i < 3; i++) {
-                for (Ingredient ingredient : ingredients) {
+                for (EIOIngredient ingredient : alloySmeltingRecipe.getInputs()) {
                     ItemStack stack = itemHandler.getStackInSlot(i);
                     if (ingredient.test(stack)) {
                         stack.shrink(1); // TODO: Get from recipe.
@@ -108,6 +108,7 @@ public class AlloySmelterBlockEntity extends PoweredCraftingMachineEntity<Recipe
             // We only craft 1x when alloying
             resultModifier = 1;
         } else if (recipe instanceof SmeltingRecipe) {
+            NonNullList<Ingredient> ingredients = getCurrentRecipe().getIngredients();
             // Remove the cooked item.
             int smelting = 0;
             for (int i = 0; i < 3; i++) {
@@ -125,7 +126,7 @@ public class AlloySmelterBlockEntity extends PoweredCraftingMachineEntity<Recipe
     }
 
     // TODO: Ensure this is in line with the stirling generator.
-    private static final int RF_PER_ITEM = ForgeHooks.getBurnTime(new ItemStack(Items.COAL, 1), RecipeType.SMELTING) * 10 / 8;
+    public static final int RF_PER_ITEM = ForgeHooks.getBurnTime(new ItemStack(Items.COAL, 1), RecipeType.SMELTING) * 10 / 8;
 
     @Override
     protected int getEnergyCost(Recipe<Container> recipe) {

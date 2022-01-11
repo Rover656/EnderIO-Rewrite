@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class EnchanterScreen extends EIOScreen<EnchanterMenu> {
-    private static final ResourceLocation BG_TEXTURE = EIOMachines.loc("textures/gui/enchanter.png");
+    public static final ResourceLocation BG_TEXTURE = EIOMachines.loc("textures/gui/enchanter.png");
 
     public EnchanterScreen(EnchanterMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

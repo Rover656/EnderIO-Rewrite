@@ -1,6 +1,8 @@
 package com.enderio.machines.common.recipe;
 
 import com.enderio.base.common.recipe.DataGenSerializer;
+import com.enderio.base.common.recipe.EIOIngredient;
+import com.enderio.base.common.recipe.IEnderRecipe;
 import com.enderio.machines.common.init.MachineRecipes;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -15,14 +17,17 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.CraftingHelper;
 
-public class AlloySmeltingRecipe extends MachineRecipe<AlloySmeltingRecipe, Container> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, Container> {
     private final ResourceLocation id;
-    private final NonNullList<Ingredient> ingredients; // TODO: Custom "Ingredient" class supporting counts
+    private final List<EIOIngredient> ingredients; // TODO: Custom "Ingredient" class supporting counts
     private final ItemStack result;
     private final int energy;
     private final float experience;
 
-    public AlloySmeltingRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, ItemStack result, int energy, float experience) {
+    public AlloySmeltingRecipe(ResourceLocation id, List<EIOIngredient> ingredients, ItemStack result, int energy, float experience) {
         if (ingredients.size() > 3) {
             throw new IllegalArgumentException("Tried to create an invalid alloy smelting recipe!");
         }
@@ -35,8 +40,13 @@ public class AlloySmeltingRecipe extends MachineRecipe<AlloySmeltingRecipe, Cont
     }
 
     @Override
-    public NonNullList<Ingredient> getIngredients() {
+    public List<EIOIngredient> getInputs() {
         return ingredients;
+    }
+
+    @Override
+    public List<ItemStack> getOutputs() {
+        return null;
     }
 
     @Override
@@ -87,7 +97,7 @@ public class AlloySmeltingRecipe extends MachineRecipe<AlloySmeltingRecipe, Cont
 
     @Override
     public ItemStack getResultItem() {
-        return ItemStack.EMPTY;
+        return result.copy();
     }
 
     @Override
@@ -111,9 +121,9 @@ public class AlloySmeltingRecipe extends MachineRecipe<AlloySmeltingRecipe, Cont
         public AlloySmeltingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             // Load ingredients
             JsonArray jsonIngredients = pSerializedRecipe.getAsJsonArray("ingredients");
-            NonNullList<Ingredient> ingredients = NonNullList.withSize(jsonIngredients.size(), Ingredient.EMPTY);
+            List<EIOIngredient> ingredients = new ArrayList<>(jsonIngredients.size());
             for (int i = 0; i < jsonIngredients.size(); i++) {
-                ingredients.set(i, Ingredient.fromJson(jsonIngredients.get(i)));
+                ingredients.add(i, EIOIngredient.fromJson(jsonIngredients.get(i)));
             }
 
             // Load result, energy and experience.
@@ -144,7 +154,7 @@ public class AlloySmeltingRecipe extends MachineRecipe<AlloySmeltingRecipe, Cont
 
         @Override
         public AlloySmeltingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            NonNullList<Ingredient> ingredients = pBuffer.readCollection(count -> NonNullList.withSize(count, Ingredient.EMPTY), Ingredient::fromNetwork);
+            List<EIOIngredient> ingredients = pBuffer.readList(EIOIngredient::fromNetwork);
             ItemStack result = pBuffer.readItem();
             int energy = pBuffer.readInt();
             float experience = pBuffer.readFloat();
