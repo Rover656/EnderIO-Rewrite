@@ -62,7 +62,7 @@ public class ItemRecipes extends RecipeProvider {
         ShapedRecipeBuilder
             .shaped(EIOItems.ELECTROMAGNET.get())
             .define('V', EIOItems.VIBRANT_CRYSTAL.get())
-            .define('C', EIOItems.CONDUCTIVE_IRON_INGOT.get())
+            .define('C', EIOItems.SUPER_CONDUCTIVE_ALLOY_INGOT.get())
             .define('E', EIOItems.COPPER_ALLOY_INGOT.get())
             .pattern("CVC")
             .pattern("C C")

@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "enderio:ender_crystal"
+    "items": {
+      "item": "enderio:ender_crystal"
+    },
+    "count": 1
   },
   "enchantment": "enderio:soulbound",
   "amount": 1,

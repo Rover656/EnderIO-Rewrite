@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:redstone"
+    "items": {
+      "tag": "forge:dusts/redstone"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:efficiency",
   "amount": 12,

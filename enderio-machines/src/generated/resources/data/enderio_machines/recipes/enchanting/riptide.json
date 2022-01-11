@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:iron_ingot"
+    "items": {
+      "tag": "forge:ingots/iron"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:riptide",
   "amount": 8,

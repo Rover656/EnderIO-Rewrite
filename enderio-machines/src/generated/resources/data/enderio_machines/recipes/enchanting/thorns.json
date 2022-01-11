@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:rose_bush"
+    "items": {
+      "item": "minecraft:rose_bush"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:thorns",
   "amount": 4,

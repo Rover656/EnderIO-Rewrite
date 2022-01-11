@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "enderio:conductive_iron_nugget"
+      "enderio:octadic_capacitor"
     ]
   },
   "criteria": {
@@ -12,7 +12,7 @@
         "items": [
           {
             "items": [
-              "enderio:conductive_iron_ingot"
+              "enderio:double_layer_capacitor"
             ]
           }
         ]
@@ -21,7 +21,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "enderio:conductive_iron_nugget"
+        "recipe": "enderio:octadic_capacitor"
       }
     }
   },

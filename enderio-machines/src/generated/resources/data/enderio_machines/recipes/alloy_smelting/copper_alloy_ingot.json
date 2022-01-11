@@ -3,7 +3,7 @@
   "ingredients": [
     {
       "items": {
-        "item": "minecraft:copper_ingot"
+        "tag": "forge:ingots/copper"
       },
       "count": 1
     },

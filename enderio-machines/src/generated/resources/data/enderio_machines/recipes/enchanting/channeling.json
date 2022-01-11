@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:lightning_rod"
+    "items": {
+      "item": "minecraft:lightning_rod"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:channeling",
   "amount": 1,

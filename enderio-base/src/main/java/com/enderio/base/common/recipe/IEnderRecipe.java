@@ -36,12 +36,13 @@ public interface IEnderRecipe<R extends IEnderRecipe<R, C>, C extends Container>
 
     default List<String> getModDependencies() {
         Set<String> mods = new HashSet<>();
-        for (EIOIngredient ingredient : getInputs()) {
-            for (ItemStack item : ingredient.getItems()) {
-                String mod = item.getItem().getRegistryName().getNamespace();
-                mods.add(mod);
-            }
-        }
+        // TODO!!!! borks
+//        for (EIOIngredient ingredient : getInputs()) {
+//            for (ItemStack item : ingredient.getItems()) {
+//                String mod = item.getItem().getRegistryName().getNamespace();
+//                mods.add(mod);
+//            }
+//        }
 
         getOutputs().forEach(dep -> mods.add(dep.getItem().getRegistryName().getNamespace()));
         getOtherDependencies().forEach(dep -> mods.add(dep.getNamespace()));

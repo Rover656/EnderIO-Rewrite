@@ -122,8 +122,8 @@ public class BlockRecipes extends RecipeProvider {
         addMetalBlockRecipe(recipeConsumer, EIOBlocks.ENERGETIC_ALLOY_BLOCK, EIOItems.ENERGETIC_ALLOY_INGOT.get());
         addMetalBlockRecipe(recipeConsumer, EIOBlocks.VIBRANT_ALLOY_BLOCK, EIOItems.VIBRANT_ALLOY_INGOT.get());
         addMetalBlockRecipe(recipeConsumer, EIOBlocks.REDSTONE_ALLOY_BLOCK, EIOItems.REDSTONE_ALLOY_INGOT.get());
-        addMetalBlockRecipe(recipeConsumer, EIOBlocks.CONDUCTIVE_IRON_BLOCK, EIOItems.CONDUCTIVE_IRON_INGOT.get());
-        addMetalBlockRecipe(recipeConsumer, EIOBlocks.PULSATING_IRON_BLOCK, EIOItems.PULSATING_IRON_INGOT.get());
+        addMetalBlockRecipe(recipeConsumer, EIOBlocks.CONDUCTIVE_IRON_BLOCK, EIOItems.SUPER_CONDUCTIVE_ALLOY_INGOT.get());
+        addMetalBlockRecipe(recipeConsumer, EIOBlocks.PULSATING_IRON_BLOCK, EIOItems.PULSATING_ALLOY_INGOT.get());
         addMetalBlockRecipe(recipeConsumer, EIOBlocks.DARK_STEEL_BLOCK, EIOItems.DARK_STEEL_INGOT.get());
         addMetalBlockRecipe(recipeConsumer, EIOBlocks.SOULARIUM_BLOCK, EIOItems.SOULARIUM_INGOT.get());
         addMetalBlockRecipe(recipeConsumer, EIOBlocks.END_STEEL_BLOCK, EIOItems.END_STEEL_INGOT.get());

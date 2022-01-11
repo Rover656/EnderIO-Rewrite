@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:string"
+    "items": {
+      "tag": "forge:string"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:punch",
   "amount": 1,

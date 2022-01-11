@@ -83,10 +83,10 @@ public class MaterialRecipes extends RecipeProvider {
         ingotToNuggets(recipeConsumer, EIOItems.VIBRANT_ALLOY_NUGGET.get(), EIOItems.VIBRANT_ALLOY_INGOT.get());
         blockToIngots(recipeConsumer, EIOItems.REDSTONE_ALLOY_INGOT.get(),EIOBlocks.REDSTONE_ALLOY_BLOCK.get());
         ingotToNuggets(recipeConsumer, EIOItems.REDSTONE_ALLOY_NUGGET.get(), EIOItems.REDSTONE_ALLOY_INGOT.get()); 
-        blockToIngots(recipeConsumer, EIOItems.CONDUCTIVE_IRON_INGOT.get(),EIOBlocks.CONDUCTIVE_IRON_BLOCK.get());
-        ingotToNuggets(recipeConsumer, EIOItems.CONDUCTIVE_IRON_NUGGET.get(), EIOItems.CONDUCTIVE_IRON_INGOT.get());
-        blockToIngots(recipeConsumer, EIOItems.PULSATING_IRON_INGOT.get(),EIOBlocks.PULSATING_IRON_BLOCK.get());
-        ingotToNuggets(recipeConsumer, EIOItems.PULSATING_IRON_NUGGET.get(), EIOItems.PULSATING_IRON_INGOT.get());
+        blockToIngots(recipeConsumer, EIOItems.SUPER_CONDUCTIVE_ALLOY_INGOT.get(),EIOBlocks.CONDUCTIVE_IRON_BLOCK.get());
+        ingotToNuggets(recipeConsumer, EIOItems.SUPER_CONDUCTIVE_ALLOY_NUGGET.get(), EIOItems.SUPER_CONDUCTIVE_ALLOY_INGOT.get());
+        blockToIngots(recipeConsumer, EIOItems.PULSATING_ALLOY_INGOT.get(),EIOBlocks.PULSATING_IRON_BLOCK.get());
+        ingotToNuggets(recipeConsumer, EIOItems.PULSATING_ALLOY_NUGGET.get(), EIOItems.PULSATING_ALLOY_INGOT.get());
         blockToIngots(recipeConsumer, EIOItems.DARK_STEEL_INGOT.get(),EIOBlocks.DARK_STEEL_BLOCK.get());
         ingotToNuggets(recipeConsumer, EIOItems.DARK_STEEL_NUGGET.get(), EIOItems.DARK_STEEL_INGOT.get());
         blockToIngots(recipeConsumer, EIOItems.SOULARIUM_INGOT.get(),EIOBlocks.SOULARIUM_BLOCK.get());
@@ -112,9 +112,9 @@ public class MaterialRecipes extends RecipeProvider {
             .pattern("PPP")
             .pattern("PDP")
             .pattern("PPP")
-            .define('P', EIOItems.PULSATING_IRON_NUGGET.get())
+            .define('P', EIOItems.PULSATING_ALLOY_NUGGET.get())
             .define('D', Tags.Items.GEMS_DIAMOND)
-            .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.PULSATING_IRON_NUGGET.get()))
+            .unlockedBy("has_ingredient", InventoryChangeTrigger.TriggerInstance.hasItems(EIOItems.PULSATING_ALLOY_NUGGET.get()))
             .save(recipeConsumer);
         
         ShapedRecipeBuilder.shaped(EIOItems.VIBRANT_CRYSTAL.get())
@@ -257,8 +257,8 @@ public class MaterialRecipes extends RecipeProvider {
         
         grindingBall(recipeConsumer, EIOItems.DARK_STEEL_BALL.get(), EIOItems.DARK_STEEL_INGOT.get());
         grindingBall(recipeConsumer, EIOItems.SOULARIUM_BALL.get(), EIOItems.SOULARIUM_INGOT.get());
-        grindingBall(recipeConsumer, EIOItems.CONDUCTIVE_IRON_BALL.get(), EIOItems.CONDUCTIVE_IRON_INGOT.get());
-        grindingBall(recipeConsumer, EIOItems.PULSATING_IRON_BALL.get(), EIOItems.PULSATING_IRON_INGOT.get());
+        grindingBall(recipeConsumer, EIOItems.SUPER_CONDUCTIVE_ALLOY_BALL.get(), EIOItems.SUPER_CONDUCTIVE_ALLOY_INGOT.get());
+        grindingBall(recipeConsumer, EIOItems.PULSATING_ALLOY_BALL.get(), EIOItems.PULSATING_ALLOY_INGOT.get());
 //        grindingBall(recipeConsumer, EIOItems.CONSTRUCTION_ALLOY_BALL.get(), EIOItems.CONSTRUCTION_ALLOY_BALL.get());
         grindingBall(recipeConsumer, EIOItems.REDSTONE_ALLOY_BALL.get(), EIOItems.REDSTONE_ALLOY_INGOT.get());
         grindingBall(recipeConsumer, EIOItems.ENERGETIC_ALLOY_BALL.get(), EIOItems.ENERGETIC_ALLOY_INGOT.get());

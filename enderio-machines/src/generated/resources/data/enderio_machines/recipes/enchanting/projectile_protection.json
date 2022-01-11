@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:leather"
+    "items": {
+      "item": "minecraft:leather"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:projectile_protection",
   "amount": 16,

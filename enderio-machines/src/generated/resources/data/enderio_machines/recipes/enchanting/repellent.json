@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:ender_pearl"
+    "items": {
+      "item": "minecraft:ender_pearl"
+    },
+    "count": 1
   },
   "enchantment": "enderio:repellent",
   "amount": 4,

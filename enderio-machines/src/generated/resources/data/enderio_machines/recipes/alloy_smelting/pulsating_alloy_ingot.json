@@ -3,19 +3,19 @@
   "ingredients": [
     {
       "items": {
-        "tag": "forge:dusts/redstone"
+        "tag": "forge:ingots/copper"
       },
       "count": 1
     },
     {
       "items": {
-        "tag": "forge:ingots/iron"
+        "tag": "forge:ender_pearls"
       },
       "count": 1
     }
   ],
   "result": {
-    "item": "enderio:conductive_iron_ingot"
+    "item": "enderio:pulsating_alloy_ingot"
   },
   "energy": 10000,
   "experience": 0.3

@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:emerald"
+    "items": {
+      "tag": "forge:gems/emerald"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:fortune",
   "amount": 1,

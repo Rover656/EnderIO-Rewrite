@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:obsidian"
+    "items": {
+      "tag": "forge:obsidian"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:unbreaking",
   "amount": 1,

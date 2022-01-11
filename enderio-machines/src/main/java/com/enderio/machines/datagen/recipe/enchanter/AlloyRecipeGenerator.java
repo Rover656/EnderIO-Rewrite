@@ -7,17 +7,13 @@ import com.enderio.base.common.recipe.EnderRecipeResult;
 import com.enderio.base.common.tag.EIOTags;
 import com.enderio.machines.EIOMachines;
 import com.enderio.machines.common.recipe.AlloySmeltingRecipe;
-import com.enderio.machines.datagen.recipe.RecipeResult;
-import net.minecraft.core.NonNullList;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
-import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -35,12 +31,12 @@ public class AlloyRecipeGenerator extends RecipeProvider {
 
         // region Metal Alloys
 
-        build(new ItemStack(EIOItems.COPPER_ALLOY_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.INGOTS_COPPER), EIOIngredient.of(EIOTags.Items.SILICON)), 10000, 0.3f, pFinishedRecipeConsumer);
         build(new ItemStack(EIOItems.ENERGETIC_ALLOY_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.DUSTS_REDSTONE), EIOIngredient.of(Tags.Items.INGOTS_GOLD), EIOIngredient.of(Tags.Items.DUSTS_GLOWSTONE)), 10000, 0.3f, pFinishedRecipeConsumer);
+        build(new ItemStack(EIOItems.COPPER_ALLOY_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.INGOTS_COPPER), EIOIngredient.of(EIOTags.Items.SILICON)), 10000, 0.3f, pFinishedRecipeConsumer);
         build(new ItemStack(EIOItems.VIBRANT_ALLOY_INGOT.get()), List.of(EIOIngredient.of(EIOItems.ENERGETIC_ALLOY_INGOT.get()), EIOIngredient.of(Tags.Items.ENDER_PEARLS)), 10000, 0.3f, pFinishedRecipeConsumer);
         build(new ItemStack(EIOItems.REDSTONE_ALLOY_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.DUSTS_REDSTONE), EIOIngredient.of(EIOTags.Items.SILICON)), 10000, 0.3f, pFinishedRecipeConsumer);
-        build(new ItemStack(EIOItems.CONDUCTIVE_IRON_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.DUSTS_REDSTONE), EIOIngredient.of(Tags.Items.INGOTS_IRON)), 10000, 0.3f, pFinishedRecipeConsumer);
-        build(new ItemStack(EIOItems.PULSATING_IRON_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.INGOTS_IRON), EIOIngredient.of(Tags.Items.ENDER_PEARLS)), 10000, 0.3f, pFinishedRecipeConsumer);
+        build(new ItemStack(EIOItems.SUPER_CONDUCTIVE_ALLOY_INGOT.get()), List.of(EIOIngredient.of(EIOItems.COPPER_ALLOY_INGOT.get()), EIOIngredient.of(Tags.Items.INGOTS_IRON), EIOIngredient.of(Tags.Items.DUSTS_REDSTONE)), 10000, 0.3f, pFinishedRecipeConsumer);
+        build(new ItemStack(EIOItems.PULSATING_ALLOY_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.INGOTS_COPPER), EIOIngredient.of(Tags.Items.ENDER_PEARLS)), 10000, 0.3f, pFinishedRecipeConsumer);
         build(new ItemStack(EIOItems.DARK_STEEL_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.INGOTS_IRON), EIOIngredient.of(EIOTags.Items.DUSTS_COAL), EIOIngredient.of(Tags.Items.OBSIDIAN)), 20000, 0.3f, pFinishedRecipeConsumer);
         build(new ItemStack(EIOItems.SOULARIUM_INGOT.get()), List.of(EIOIngredient.of(Items.SOUL_SAND, Items.SOUL_SOIL), EIOIngredient.of(Tags.Items.INGOTS_GOLD)), 10000, 0.3f, pFinishedRecipeConsumer);
         build(new ItemStack(EIOItems.END_STEEL_INGOT.get()), List.of(EIOIngredient.of(Tags.Items.END_STONES), EIOIngredient.of(EIOItems.DARK_STEEL_INGOT.get()), EIOIngredient.of(Tags.Items.OBSIDIAN)), 20000, 0.3f, pFinishedRecipeConsumer);

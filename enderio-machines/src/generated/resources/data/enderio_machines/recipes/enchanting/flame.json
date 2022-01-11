@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:netherrack"
+    "items": {
+      "tag": "forge:netherrack"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:flame",
   "amount": 1,

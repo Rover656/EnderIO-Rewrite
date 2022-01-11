@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "enderio:item/conductive_iron_nugget"
+    "layer0": "enderio:item/pulsating_alloy_ball"
   }
 }

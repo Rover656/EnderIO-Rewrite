@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.CraftingHelper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, Container> {
@@ -46,7 +47,7 @@ public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, 
 
     @Override
     public List<ItemStack> getOutputs() {
-        return null;
+        return Collections.singletonList(result);
     }
 
     @Override

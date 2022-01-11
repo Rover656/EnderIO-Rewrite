@@ -3,7 +3,7 @@
   "ingredients": [
     {
       "items": {
-        "tag": "forge:dyes/green"
+        "item": "minecraft:green_dye"
       },
       "count": 2
     },

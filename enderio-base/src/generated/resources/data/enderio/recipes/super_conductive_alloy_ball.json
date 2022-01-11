@@ -7,11 +7,11 @@
   ],
   "key": {
     "I": {
-      "item": "enderio:pulsating_iron_ingot"
+      "item": "enderio:super_conductive_alloy_ingot"
     }
   },
   "result": {
-    "item": "enderio:pulsating_iron_ball",
+    "item": "enderio:super_conductive_alloy_ball",
     "count": 24
   }
 }

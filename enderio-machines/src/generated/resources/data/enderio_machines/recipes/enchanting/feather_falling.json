@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:feather"
+    "items": {
+      "item": "minecraft:feather"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:feather_falling",
   "amount": 1,

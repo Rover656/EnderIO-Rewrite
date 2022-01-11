@@ -1,7 +1,10 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "item": "minecraft:arrow"
+    "items": {
+      "tag": "minecraft:arrows"
+    },
+    "count": 1
   },
   "enchantment": "minecraft:multishot",
   "amount": 16,
