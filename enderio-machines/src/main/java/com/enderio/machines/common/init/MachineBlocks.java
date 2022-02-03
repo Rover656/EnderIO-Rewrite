@@ -176,5 +176,29 @@ public class MachineBlocks {
         .build()
         .register();
 
+    public static final BlockEntry<SimpleMachineBlock> SIMPLE_SAG_MILL = REGISTRATE
+        .block("simple_sagmill", props -> new SimpleMachineBlock(props, MachineBlockEntities.SIMPLE_SAG_MILL))
+        .properties(props -> props.strength(2.5f, 8))
+        .loot(MachinesLootTable::copyNBT)
+        .addLayer(() -> RenderType::cutout)
+        .blockstate((ctx, prov) -> {
+            MachinesBlockState.machineBlock(ctx, prov,
+                EIOModel.compositeModel(prov.models(), ctx.getName(), builder -> builder
+                    .component(EIOMachines.loc("block/simple_machine_frame"))
+                    .component(EIOMachines.loc("block/io_overlay"))
+                    .component(EIOMachines.loc("block/simple_placeholder_machine_front"))),
+                EIOModel.compositeModel(prov.models(), ctx.getName() + "_on", builder -> builder
+                    .component(EIOMachines.loc("block/simple_machine_frame"))
+                    .component(EIOMachines.loc("block/io_overlay"))
+                    .component(prov
+                        .models()
+                        .withExistingParent("simple_sagmill_front_on", EIOMachines.loc("block/simple_placeholder_machine_front"))
+                        /*.texture("front", EIOMachines.loc("block/simple_sagmill_front_on"))*/)));
+        })
+        .item()
+        .tab(() -> EIOCreativeTabs.MACHINES)
+        .build()
+        .register();
+
     public static void register() {}
 }

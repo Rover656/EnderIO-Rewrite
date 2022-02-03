@@ -1,11 +1,12 @@
 package com.enderio.base.datagen.recipe.standard;
 
-import com.enderio.base.common.capability.capacitors.CapacitorData;
+import com.enderio.base.common.capability.capacitor.CapacitorData;
 import com.enderio.base.common.init.EIOItems;
 import com.enderio.base.common.recipe.capacitor.CapacitorDataRecipe;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
 import javax.annotation.Nonnull;
@@ -26,15 +27,7 @@ public class CapacitorDataRecipeGenerator extends RecipeProvider {
     }
 
     protected void build(float base, Item item, Consumer<FinishedRecipe> recipeConsumer) {
-        Map<String, Float> specialisations = new HashMap<>();
-        build(base, specialisations, item, recipeConsumer);
-    }
-
-    protected void build(float base, Map<String, Float> specialisations, Item item, Consumer<FinishedRecipe> recipeConsumer) {
-        CapacitorData data = new CapacitorData();
-        data.setBase(base);
-        data.addAllSpecialization(specialisations);
-        build(data, item, recipeConsumer);
+        build(new CapacitorData(base), item, recipeConsumer);
     }
 
     protected void build(CapacitorData capacitorData, Item item, Consumer<FinishedRecipe> recipeConsumer) {

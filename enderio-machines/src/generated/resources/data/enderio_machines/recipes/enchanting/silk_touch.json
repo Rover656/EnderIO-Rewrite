@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "tag": "forge:slimeballs"
-    },
-    "count": 1
+    "tag": "forge:slimeballs"
   },
   "enchantment": "minecraft:silk_touch",
   "amount": 1,

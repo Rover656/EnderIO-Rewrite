@@ -2,19 +2,19 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "items": {
+      "ingredient": {
         "item": "minecraft:brown_dye"
       },
       "count": 1
     },
     {
-      "items": {
+      "ingredient": {
         "item": "minecraft:egg"
       },
       "count": 1
     },
     {
-      "items": {
+      "ingredient": {
         "tag": "forge:dusts/coal"
       },
       "count": 1

@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "item": "minecraft:gunpowder"
-    },
-    "count": 1
+    "item": "minecraft:gunpowder"
   },
   "enchantment": "minecraft:blast_protection",
   "amount": 16,

@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,powered=false": {
+      "model": "enderio_machines:block/simple_sagmill"
+    },
+    "facing=south,powered=false": {
+      "model": "enderio_machines:block/simple_sagmill",
+      "y": 180
+    },
+    "facing=west,powered=false": {
+      "model": "enderio_machines:block/simple_sagmill",
+      "y": 270
+    },
+    "facing=east,powered=false": {
+      "model": "enderio_machines:block/simple_sagmill",
+      "y": 90
+    },
+    "facing=north,powered=true": {
+      "model": "enderio_machines:block/simple_sagmill_on"
+    },
+    "facing=south,powered=true": {
+      "model": "enderio_machines:block/simple_sagmill_on",
+      "y": 180
+    },
+    "facing=west,powered=true": {
+      "model": "enderio_machines:block/simple_sagmill_on",
+      "y": 270
+    },
+    "facing=east,powered=true": {
+      "model": "enderio_machines:block/simple_sagmill_on",
+      "y": 90
+    }
+  }
+}

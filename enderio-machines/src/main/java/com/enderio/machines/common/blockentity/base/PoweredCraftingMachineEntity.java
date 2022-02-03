@@ -32,8 +32,8 @@ public abstract class PoweredCraftingMachineEntity<R extends Recipe<Container>> 
     @UseOnly(LogicalSide.CLIENT)
     private float clientProgress;
 
-    public PoweredCraftingMachineEntity(MachineTier tier, BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-        super(tier, pType, pWorldPosition, pBlockState);
+    public PoweredCraftingMachineEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
+        super(pType, pWorldPosition, pBlockState);
 
         // Sync machine progress to the client.
         addDataSlot(new FloatDataSlot(this::getProgress, p -> clientProgress = p, SyncMode.GUI));
@@ -167,7 +167,7 @@ public abstract class PoweredCraftingMachineEntity<R extends Recipe<Container>> 
     protected abstract void consumeIngredients(R recipe);
 
     /**
-     * Whether or not the output of the recipe can be put into the inventory of the machine.
+     * Whether the output of the recipe can be put into the inventory of the machine.
      */
     protected abstract boolean canTakeOutput(R recipe);
 

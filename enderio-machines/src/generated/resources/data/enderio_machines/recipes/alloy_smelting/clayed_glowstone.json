@@ -2,13 +2,13 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "items": {
+      "ingredient": {
         "tag": "forge:dusts/glowstone"
       },
       "count": 1
     },
     {
-      "items": {
+      "ingredient": {
         "item": "minecraft:clay_ball"
       },
       "count": 1

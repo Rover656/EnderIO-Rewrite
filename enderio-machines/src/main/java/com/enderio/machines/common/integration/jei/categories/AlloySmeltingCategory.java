@@ -1,11 +1,11 @@
 package com.enderio.machines.common.integration.jei.categories;
 
 import com.enderio.base.common.lang.EIOLang;
-import com.enderio.base.common.recipe.EIOIngredient;
 import com.enderio.base.common.util.TooltipUtil;
 import com.enderio.machines.client.gui.screen.AlloySmelterScreen;
 import com.enderio.machines.common.init.MachineBlocks;
 import com.enderio.machines.common.integration.jei.JEIPlugin;
+import com.enderio.machines.common.lang.MachineLang;
 import com.enderio.machines.common.recipe.AlloySmeltingRecipe;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
@@ -23,7 +23,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class AlloySmeltingCategory implements IRecipeCategory<AlloySmeltingRecipe> {
@@ -62,12 +61,8 @@ public class AlloySmeltingCategory implements IRecipeCategory<AlloySmeltingRecip
 
     @Override
     public void setIngredients(AlloySmeltingRecipe recipe, IIngredients ingredients) {
-        List<List<ItemStack>> inputs = new ArrayList<>();
-        for (EIOIngredient ingredient : recipe.getInputs()) {
-            inputs.add(List.of(ingredient.getItems()));
-        }
-        ingredients.setInputLists(VanillaTypes.ITEM, inputs);
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
+        ingredients.setInputLists(VanillaTypes.ITEM, recipe.getAllInputs());
+        ingredients.setOutputs(VanillaTypes.ITEM, recipe.getAllOutputs());
     }
 
     @Override
@@ -91,7 +86,7 @@ public class AlloySmeltingCategory implements IRecipeCategory<AlloySmeltingRecip
     public List<Component> getTooltipStrings(AlloySmeltingRecipe recipe, double mouseX, double mouseY) {
         Minecraft mc = Minecraft.getInstance();
         if (mouseX > 60 && mouseY > 50 && mouseX < 60 + mc.font.width(getEnergyString(recipe)) && mouseY < 50 + mc.font.lineHeight) {
-            return List.of(new TextComponent("A unit of energy, equivalent to FE."));
+            return List.of(MachineLang.TOOLTIP_ENERGY_EQUIVALENCE);
         }
 
         return List.of();

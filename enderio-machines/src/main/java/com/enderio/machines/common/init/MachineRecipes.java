@@ -3,6 +3,7 @@ package com.enderio.machines.common.init;
 import com.enderio.machines.EIOMachines;
 import com.enderio.machines.common.recipe.AlloySmeltingRecipe;
 import com.enderio.machines.common.recipe.EnchanterRecipe;
+import com.enderio.machines.common.recipe.SagMillRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,8 +23,9 @@ public class MachineRecipes {
 
         public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZER_REGISTRY = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, EIOMachines.MODID);
 
-        public static final RegistryObject<EnchanterRecipe.Serializer> ENCHANTING = RECIPE_SERIALIZER_REGISTRY.register("enchanting", EnchanterRecipe.Serializer::new);
         public static final RegistryObject<AlloySmeltingRecipe.Serializer> ALLOY_SMELTING = RECIPE_SERIALIZER_REGISTRY.register("alloy_smelting", AlloySmeltingRecipe.Serializer::new);
+        public static final RegistryObject<EnchanterRecipe.Serializer> ENCHANTING = RECIPE_SERIALIZER_REGISTRY.register("enchanting", EnchanterRecipe.Serializer::new);
+        public static final RegistryObject<SagMillRecipe.Serializer> SAGMILLING = RECIPE_SERIALIZER_REGISTRY.register("sagmilling", SagMillRecipe.Serializer::new);
 
         public static void register(IEventBus bus) {
             RECIPE_SERIALIZER_REGISTRY.register(bus);
@@ -35,6 +37,7 @@ public class MachineRecipes {
 
         public static RecipeType<EnchanterRecipe> ENCHANTING = RecipeType.register(EIOMachines.MODID + ":enchanting");
         public static RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING = RecipeType.register(EIOMachines.MODID + ":alloy_smelting");
+        public static RecipeType<SagMillRecipe> SAGMILLING = RecipeType.register(EIOMachines.MODID + ":sagmilling");
 
         public static void register() {}
     }

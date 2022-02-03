@@ -28,7 +28,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.CapabilityItemHandler;
 
 import javax.annotation.Nonnull;
@@ -43,6 +42,11 @@ public abstract class FluidTankBlockEntity extends MachineBlockEntity {
         public Standard(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
             super(pType, pWorldPosition, pBlockState, CAPACITY);
         }
+
+        @Override
+        public MachineTier getTier() {
+            return MachineTier.STANDARD;
+        }
     }
 
     public static class Enhanced extends FluidTankBlockEntity {
@@ -51,12 +55,17 @@ public abstract class FluidTankBlockEntity extends MachineBlockEntity {
         public Enhanced(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
             super(pType, pWorldPosition, pBlockState, CAPACITY);
         }
+
+        @Override
+        public MachineTier getTier() {
+            return MachineTier.STANDARD;
+        }
     }
 
     private final FluidTankMaster fluidTank;
 
     public FluidTankBlockEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState, int capacity) {
-        super(MachineTier.Standard, pType, pWorldPosition, pBlockState);
+        super(pType, pWorldPosition, pBlockState);
         this.fluidTank =  new FluidTankMaster(capacity, getIoConfig());
 
         addDataSlot(new FluidStackDataSlot(() -> fluidTank.getFluidInTank(0), fluidTank::setFluid, SyncMode.WORLD));

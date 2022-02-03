@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "tag": "forge:gems/lapis"
-    },
-    "count": 1
+    "tag": "forge:gems/lapis"
   },
   "enchantment": "minecraft:luck_of_the_sea",
   "amount": 1,

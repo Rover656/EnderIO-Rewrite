@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "item": "minecraft:rotten_flesh"
-    },
-    "count": 1
+    "item": "minecraft:rotten_flesh"
   },
   "enchantment": "minecraft:smite",
   "amount": 12,

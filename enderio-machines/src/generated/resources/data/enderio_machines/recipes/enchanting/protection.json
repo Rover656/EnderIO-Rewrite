@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "item": "enderio:dark_steel_ingot"
-    },
-    "count": 1
+    "item": "enderio:dark_steel_ingot"
   },
   "enchantment": "minecraft:protection",
   "amount": 16,

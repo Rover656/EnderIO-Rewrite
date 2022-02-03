@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "item": "minecraft:sugar"
-    },
-    "count": 1
+    "item": "minecraft:sugar"
   },
   "enchantment": "minecraft:quick_charge",
   "amount": 16,

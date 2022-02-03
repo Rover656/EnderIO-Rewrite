@@ -2,13 +2,13 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "items": {
+      "ingredient": {
         "tag": "forge:dusts/coal"
       },
       "count": 6
     },
     {
-      "items": {
+      "ingredient": {
         "item": "minecraft:slime_ball"
       },
       "count": 1

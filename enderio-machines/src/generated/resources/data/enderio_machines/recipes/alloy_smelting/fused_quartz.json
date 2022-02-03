@@ -2,7 +2,7 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "items": {
+      "ingredient": {
         "tag": "forge:gems/quartz"
       },
       "count": 4

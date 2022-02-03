@@ -1,7 +1,7 @@
 package com.enderio.base.common.init;
 
 import com.enderio.base.EnderIO;
-import com.enderio.base.common.capability.capacitors.ICapacitorData;
+import com.enderio.base.common.capability.capacitor.ICapacitorData;
 import com.enderio.base.common.capability.darksteel.IDarkSteelUpgradable;
 import com.enderio.base.common.capability.entity.IEntityStorage;
 import com.enderio.base.common.capability.location.ICoordinateSelectionHolder;

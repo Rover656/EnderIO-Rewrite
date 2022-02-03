@@ -2,12 +2,13 @@ package com.enderio.base.common.util;
 
 import com.enderio.base.EnderIO;
 import com.enderio.base.common.init.EIOCapabilities;
-import com.enderio.base.common.capability.capacitors.CapacitorSpecializations;
-import com.enderio.base.common.capability.capacitors.ICapacitorData;
+import com.enderio.base.common.capability.capacitor.CapacitorSpecializations;
+import com.enderio.base.common.capability.capacitor.ICapacitorData;
 import com.enderio.base.common.init.EIORecipes;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.RecipesUpdatedEvent;
@@ -25,16 +26,17 @@ public class CapacitorUtil {
     /**
      * Static maps with specializations for the "basic"
      */
-    private static ArrayList<String> types = new ArrayList<>(); // TODO: make it so mods can add to this, IMC maybe?
+    private static ArrayList<ResourceLocation> types = new ArrayList<>(); // TODO: make it so mods can add to this, IMC maybe?
 
     static {
         types.add(CapacitorSpecializations.ALL_ENERGY_CONSUMPTION);
+        types.add(CapacitorSpecializations.ALL_ENERGY_BUFFER);
         types.add(CapacitorSpecializations.ALL_PRODUCTION_SPEED);
         types.add(CapacitorSpecializations.ALLOY_ENERGY_CONSUMPTION);
         types.add(CapacitorSpecializations.ALLOY_ENERGY_CONSUMPTION);
     }
 
-    public static void addType(String type) {
+    public static void addType(ResourceLocation type) {
         types.add(type);
     }
 
@@ -43,7 +45,7 @@ public class CapacitorUtil {
      *
      * @return
      */
-    public static String getRandomType() {
+    public static ResourceLocation getRandomType() {
         return types.get(new Random().nextInt(types.size()));
     }
 
@@ -55,12 +57,14 @@ public class CapacitorUtil {
      */
     public static void getTooltip(ItemStack stack, List<Component> tooltipComponents) {
         // TODO: Crashes client if the item was spawned in as it doesn't have any specializations.
-        stack.getCapability(EIOCapabilities.CAPACITOR).ifPresent(cap -> {
-            TranslatableComponent t = new TranslatableComponent(getFlavor(cap.getFlavor()),
-                getGradeText(cap.getSpecializations().values().stream().findFirst().get()),
-                getTypeText(cap.getSpecializations().keySet().stream().findFirst().get()), getBaseText(cap.getBase()));
-            tooltipComponents.add(t);
-        });
+
+        // TODO: Rework capacitor items
+//        stack.getCapability(EIOCapabilities.CAPACITOR).ifPresent(cap -> {
+//            TranslatableComponent t = new TranslatableComponent(getFlavor(cap.getFlavor()),
+//                getGradeText(cap.getSpecializations().values().stream().findFirst().get()),
+//                getTypeText(cap.getSpecializations().keySet().stream().findFirst().get()), getBaseText(cap.getBase()));
+//            tooltipComponents.add(t);
+//        });
     }
 
     //TODO depending on direction

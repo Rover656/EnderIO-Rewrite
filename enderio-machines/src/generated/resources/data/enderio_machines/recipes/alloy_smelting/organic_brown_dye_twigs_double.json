@@ -2,13 +2,13 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "items": {
+      "ingredient": {
         "item": "enderio:plant_matter_brown"
       },
       "count": 12
     },
     {
-      "items": {
+      "ingredient": {
         "item": "minecraft:slime_ball"
       },
       "count": 1

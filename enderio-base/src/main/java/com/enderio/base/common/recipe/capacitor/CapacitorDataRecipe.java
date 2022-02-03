@@ -1,7 +1,7 @@
 package com.enderio.base.common.recipe.capacitor;
 
-import com.enderio.base.common.capability.capacitors.CapacitorData;
-import com.enderio.base.common.capability.capacitors.ICapacitorData;
+import com.enderio.base.common.capability.capacitor.CapacitorData;
+import com.enderio.base.common.capability.capacitor.ICapacitorData;
 import com.enderio.base.common.recipe.DataGenSerializer;
 import com.enderio.base.common.init.EIORecipes;
 import com.google.gson.JsonObject;

@@ -47,9 +47,6 @@ public class EIOItems {
 
     // region Materials
 
-    // TODO: Roll out the new alloys and retire the old.
-//    public static final ItemEntry<MaterialItem> IRON_ALLOY_INGOT = materialItem("iron_alloy_ingot").register();
-
     public static final ItemEntry<MaterialItem> COPPER_ALLOY_INGOT = materialItem("copper_alloy_ingot").register();
     public static final ItemEntry<MaterialItem> ENERGETIC_ALLOY_INGOT = materialItem("energetic_alloy_ingot").register();
     public static final ItemEntry<MaterialItem> VIBRANT_ALLOY_INGOT = materialItem("vibrant_alloy_ingot").register();
@@ -59,6 +56,8 @@ public class EIOItems {
     public static final ItemEntry<MaterialItem> DARK_STEEL_INGOT = materialItem("dark_steel_ingot").register();
     public static final ItemEntry<MaterialItem> SOULARIUM_INGOT = materialItem("soularium_ingot").register();
     public static final ItemEntry<MaterialItem> END_STEEL_INGOT = materialItem("end_steel_ingot").register();
+    public static final ItemEntry<MaterialItem> IRON_ALLOY_INGOT = materialItem("iron_alloy_ingot")
+        .tag(Tags.Items.INGOTS_IRON).register();
 
     public static final ItemEntry<MaterialItem> COPPER_ALLOY_NUGGET = materialItem("copper_alloy_nugget").register();
     public static final ItemEntry<MaterialItem> ENERGETIC_ALLOY_NUGGET = materialItem("energetic_alloy_nugget").register();
@@ -69,6 +68,8 @@ public class EIOItems {
     public static final ItemEntry<MaterialItem> DARK_STEEL_NUGGET = materialItem("dark_steel_nugget").register();
     public static final ItemEntry<MaterialItem> SOULARIUM_NUGGET = materialItem("soularium_nugget").register();
     public static final ItemEntry<MaterialItem> END_STEEL_NUGGET = materialItem("end_steel_nugget").register();
+    public static final ItemEntry<MaterialItem> IRON_ALLOY_NUGGET = materialItem("iron_alloy_nugget")
+        .tag(Tags.Items.NUGGETS_IRON).register();
 
     // region Basic Materials
 
@@ -278,6 +279,8 @@ public class EIOItems {
     public static ItemEntry<MaterialItem> DARK_STEEL_BALL = materialItem("dark_steel_ball").register();
 
     public static ItemEntry<MaterialItem> END_STEEL_BALL = materialItem("end_steel_ball").register();
+
+    public static ItemEntry<MaterialItem> IRON_ALLOY_BALL = materialItem("iron_alloy_ball").register();
 
     // endregion
 

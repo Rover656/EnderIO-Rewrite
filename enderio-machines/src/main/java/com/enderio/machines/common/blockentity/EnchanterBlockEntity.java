@@ -23,9 +23,14 @@ import java.util.Optional;
 public class EnchanterBlockEntity extends MachineBlockEntity {
 
     public EnchanterBlockEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-        super(MachineTier.Standard, pType, pWorldPosition, pBlockState);
+        super(pType, pWorldPosition, pBlockState);
     }
-    
+
+    @Override
+    public MachineTier getTier() {
+        return MachineTier.STANDARD;
+    }
+
     @Override
     public void saveAdditional(CompoundTag pTag) {
         super.saveAdditional(pTag);

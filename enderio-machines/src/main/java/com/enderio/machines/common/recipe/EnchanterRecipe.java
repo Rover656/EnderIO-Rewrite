@@ -21,6 +21,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.level.Level;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -100,12 +102,12 @@ public class EnchanterRecipe implements IEnderRecipe<EnchanterRecipe, Container>
     }
 
     @Override
-    public List<EIOIngredient> getInputs() {
-        return List.of(EIOIngredient.fromVanilla(getIngredient()));
+    public List<List<ItemStack>> getAllInputs() {
+        return Collections.singletonList(Arrays.stream(ingredient.getItems()).toList());
     }
 
     @Override
-    public List<ItemStack> getOutputs() {
+    public List<ItemStack> getAllOutputs() {
         return List.of();
     }
 

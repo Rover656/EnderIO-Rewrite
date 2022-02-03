@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class PowerConsumingMachineEntity extends PoweredMachineEntity {
-    public PowerConsumingMachineEntity(MachineTier tier, BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-        super(tier, pType, pWorldPosition, pBlockState);
+    public PowerConsumingMachineEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
+        super(pType, pWorldPosition, pBlockState);
     }
 
     public boolean hasEnergy() {

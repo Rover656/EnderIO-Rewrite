@@ -93,8 +93,8 @@ public class MaterialRecipes extends RecipeProvider {
         ingotToNuggets(recipeConsumer, EIOItems.SOULARIUM_NUGGET.get(), EIOItems.SOULARIUM_INGOT.get());
         blockToIngots(recipeConsumer, EIOItems.END_STEEL_INGOT.get(),EIOBlocks.END_STEEL_BLOCK.get());
         ingotToNuggets(recipeConsumer, EIOItems.END_STEEL_NUGGET.get(), EIOItems.END_STEEL_INGOT.get());
-//        blockToIngots(recipeConsumer, EIOItems.CONSTRUCTION_ALLOY_INGOT.get(),EIOBlocks.CONSTRUCTION_ALLOY_BLOCK.get());
-//        ingotToNuggets(recipeConsumer, EIOItems.CONSTRUCTION_ALLOY_NUGGET.get(), EIOItems.CONSTRUCTION_ALLOY_INGOT.get());
+        blockToIngots(recipeConsumer, EIOItems.IRON_ALLOY_INGOT.get(),EIOBlocks.IRON_ALLOY_BLOCK.get());
+        ingotToNuggets(recipeConsumer, EIOItems.IRON_ALLOY_NUGGET.get(), EIOItems.IRON_ALLOY_INGOT.get());
         
         ShapedRecipeBuilder.shaped(EIOItems.CONDUIT_BINDER_COMPOSITE.get())
             .pattern("GCG")

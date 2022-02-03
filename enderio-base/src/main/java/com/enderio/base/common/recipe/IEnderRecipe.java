@@ -1,10 +1,11 @@
 package com.enderio.base.common.recipe;
 
 import com.enderio.base.EnderIO;
-import net.minecraft.ResourceLocationException;
+import net.minecraft.core.NonNullList;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import org.apache.commons.lang3.StringUtils;
 
@@ -16,19 +17,39 @@ public interface IEnderRecipe<R extends IEnderRecipe<R, C>, C extends Container>
     @Override
     DataGenSerializer<R, C> getSerializer();
 
+    @Override
+    default boolean canCraftInDimensions(int width, int height) {
+        return true;
+    }
+
     default String getOwningMod() {
         return EnderIO.MODID;
     }
 
-    List<EIOIngredient> getInputs();
+    /**
+     * Deprecated in favour of craft which supports multiple slots.
+     */
+    @Deprecated
+    @Override
+    default ItemStack assemble(C container) {
+        throw new UnsupportedOperationException("assemble is disabled on custom recipes in favour of craft");
+    }
+
+//    List<ItemStack> craft(Container container);
+
+    /**
+     * Return a list of all possible inputs for each slot.
+     * Used by JEI primarily.
+     */
+    List<List<ItemStack>> getAllInputs();
 
     // TODO: Fluid ingredient support?
 
     /**
-     * Return an empty list if the output is dynamic.
-     * @see Recipe#getResultItem() Recipe#getResultItem() for more information.
+     * Return a list of each slots output.
+     * Used by JEI primarily.
      */
-    List<ItemStack> getOutputs();
+    List<ItemStack> getAllOutputs();
 
     default List<ResourceLocation> getOtherDependencies() {
         return List.of();
@@ -36,7 +57,7 @@ public interface IEnderRecipe<R extends IEnderRecipe<R, C>, C extends Container>
 
     default List<String> getModDependencies() {
         Set<String> mods = new HashSet<>();
-        // TODO!!!! borks
+        // TODO!!!! Rework mod dependency system for inputs.
 //        for (EIOIngredient ingredient : getInputs()) {
 //            for (ItemStack item : ingredient.getItems()) {
 //                String mod = item.getItem().getRegistryName().getNamespace();
@@ -44,7 +65,7 @@ public interface IEnderRecipe<R extends IEnderRecipe<R, C>, C extends Container>
 //            }
 //        }
 
-        getOutputs().forEach(dep -> mods.add(dep.getItem().getRegistryName().getNamespace()));
+        getAllOutputs().forEach(dep -> mods.add(dep.getItem().getRegistryName().getNamespace()));
         getOtherDependencies().forEach(dep -> mods.add(dep.getNamespace()));
 
         return mods.stream().filter(mod -> !StringUtils.equalsAny(mod, "minecraft", "forge", "enderio", getOwningMod())).toList();

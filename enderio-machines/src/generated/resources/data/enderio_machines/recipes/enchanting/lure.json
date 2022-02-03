@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "tag": "minecraft:fishes"
-    },
-    "count": 1
+    "tag": "minecraft:fishes"
   },
   "enchantment": "minecraft:lure",
   "amount": 1,

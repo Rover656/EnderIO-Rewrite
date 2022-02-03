@@ -2,13 +2,13 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "items": {
+      "ingredient": {
         "item": "enderio:flour"
       },
       "count": 1
     },
     {
-      "items": {
+      "ingredient": {
         "item": "minecraft:cocoa_beans"
       },
       "count": 1

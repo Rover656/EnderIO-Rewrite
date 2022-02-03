@@ -77,11 +77,11 @@ public class EnchanterRecipeGenerator extends RecipeProvider {
     }
     
     protected void build(Enchantment enchantment, Item ingredient, int amountPerLevel, int levelModifier, Consumer<FinishedRecipe> recipeConsumer) {
-        build(new EnchanterRecipe(null, EIOIngredient.of(ingredient), enchantment, amountPerLevel, levelModifier), enchantment.getRegistryName().getPath(), recipeConsumer);
+        build(new EnchanterRecipe(null, Ingredient.of(ingredient), enchantment, amountPerLevel, levelModifier), enchantment.getRegistryName().getPath(), recipeConsumer);
     }
     
     protected void build(Enchantment enchantment, Tag<Item> ingredient, int amountPerLevel, int levelModifier, Consumer<FinishedRecipe> recipeConsumer) {
-        build(new EnchanterRecipe(null, EIOIngredient.of(ingredient), enchantment, amountPerLevel, levelModifier), enchantment.getRegistryName().getPath(), recipeConsumer);
+        build(new EnchanterRecipe(null, Ingredient.of(ingredient), enchantment, amountPerLevel, levelModifier), enchantment.getRegistryName().getPath(), recipeConsumer);
     }
     
     protected void build(EnchanterRecipe recipe, String name, Consumer<FinishedRecipe> recipeConsumer) {

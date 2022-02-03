@@ -2,17 +2,17 @@ package com.enderio.machines.common.blockentity.base;
 
 import com.enderio.base.EnderIO;
 import com.enderio.base.common.blockentity.sync.SyncMode;
-import com.enderio.base.common.capability.capacitors.ICapacitorData;
+import com.enderio.base.common.capability.capacitor.CapacitorSpecializations;
+import com.enderio.base.common.capability.capacitor.ICapacitorData;
 import com.enderio.base.common.util.CapacitorUtil;
 import com.enderio.base.common.util.UseOnly;
-import com.enderio.base.common.util.Vector2i;
-import com.enderio.machines.common.MachineTier;
 import com.enderio.machines.common.blockentity.data.sidecontrol.item.ItemSlotLayout;
 import com.enderio.machines.common.blockentity.sync.EnergyData;
 import com.enderio.machines.common.blockentity.sync.MachineEnergyDataSlot;
 import com.enderio.machines.common.energy.MachineEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -35,8 +35,8 @@ public abstract class PoweredMachineEntity extends MachineBlockEntity {
 
     @UseOnly(LogicalSide.CLIENT) private EnergyData clientEnergy;
 
-    public PoweredMachineEntity(MachineTier tier, BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-        super(tier, pType, pWorldPosition, pBlockState);
+    public PoweredMachineEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
+        super(pType, pWorldPosition, pBlockState);
 
         energyStorage = createEnergyStorage();
 
@@ -54,8 +54,18 @@ public abstract class PoweredMachineEntity extends MachineBlockEntity {
         return new EnergyData(energyStorage.getEnergyStored(), energyStorage.getMaxEnergyStored());
     }
 
+    // region Energy Defaults
+
+    public abstract int getEnergyCapacity();
+
+    public ResourceLocation getEnergyBufferKey() {
+        return CapacitorSpecializations.ALL_ENERGY_BUFFER;
+    }
+
+    // endregion
+
     protected MachineEnergyStorage createEnergyStorage() {
-        return new MachineEnergyStorage(this::getCapacitorData) {
+        return new MachineEnergyStorage(this) {
             @Override
             protected void onEnergyChanged() {
                 setChanged();

@@ -50,15 +50,13 @@ public abstract class MachineBlockEntity extends SyncedBlockEntity implements Me
     private final EnumMap<Direction, LazyOptional<IItemHandler>> itemHandlerCache = new EnumMap<>(Direction.class);
     private final EnumMap<Direction, LazyOptional<IFluidHandler>> fluidHandlerCache = new EnumMap<>(Direction.class);
     private boolean isCacheDirty = false;
-    private final MachineTier tier;
 
     private ItemHandlerMaster itemHandlerMaster;
 
     private final IModelData modelData = new ModelDataMap.Builder().build();
 
-    public MachineBlockEntity(MachineTier tier, BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
+    public MachineBlockEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
         super(pType, pWorldPosition, pBlockState);
-        this.tier = tier;
 
         // If the machine declares an inventory layout, use it to create a handler
         getSlotLayout().ifPresent(layout -> {
@@ -76,15 +74,12 @@ public abstract class MachineBlockEntity extends SyncedBlockEntity implements Me
         modelData.setData(IO_CONFIG_PROPERTY, ioConfig);
     }
 
+    public abstract MachineTier getTier();
+
     @NotNull
     @Override
     public IModelData getModelData() {
         return modelData;
-    }
-
-    // TODO: Could just make this abstract and remove the field...
-    public final MachineTier getTier() {
-        return tier;
     }
 
     public final IOConfig getIoConfig() {

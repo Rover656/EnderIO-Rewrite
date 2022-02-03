@@ -1,10 +1,7 @@
 {
   "type": "enderio_machines:enchanting",
   "ingredient": {
-    "items": {
-      "item": "minecraft:flint"
-    },
-    "count": 1
+    "item": "minecraft:flint"
   },
   "enchantment": "minecraft:power",
   "amount": 12,

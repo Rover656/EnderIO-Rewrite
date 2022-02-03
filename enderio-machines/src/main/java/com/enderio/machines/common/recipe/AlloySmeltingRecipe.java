@@ -1,12 +1,10 @@
 package com.enderio.machines.common.recipe;
 
 import com.enderio.base.common.recipe.DataGenSerializer;
-import com.enderio.base.common.recipe.EIOIngredient;
-import com.enderio.base.common.recipe.IEnderRecipe;
+import com.enderio.base.common.recipe.EnderIngredient;
 import com.enderio.machines.common.init.MachineRecipes;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -18,17 +16,17 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.CraftingHelper;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, Container> {
     private final ResourceLocation id;
-    private final List<EIOIngredient> ingredients; // TODO: Custom "Ingredient" class supporting counts
+    private final List<EnderIngredient> ingredients; // TODO: Custom "Ingredient" class supporting counts
     private final ItemStack result;
     private final int energy;
     private final float experience;
 
-    public AlloySmeltingRecipe(ResourceLocation id, List<EIOIngredient> ingredients, ItemStack result, int energy, float experience) {
+    public AlloySmeltingRecipe(ResourceLocation id, List<EnderIngredient> ingredients, ItemStack result, int energy, float experience) {
         if (ingredients.size() > 3) {
             throw new IllegalArgumentException("Tried to create an invalid alloy smelting recipe!");
         }
@@ -40,14 +38,39 @@ public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, 
         this.experience = experience;
     }
 
-    @Override
-    public List<EIOIngredient> getInputs() {
+    // TODO: Need a better solution to this.
+    public List<EnderIngredient> getInputs() {
         return ingredients;
     }
 
+    public ItemStack consumeInput(ItemStack input) {
+        // We allow empty slots
+        if (input.isEmpty())
+            return input;
+
+        // Try to work out which ingredient this is
+        for (EnderIngredient ingredient : ingredients) {
+            if (ingredient.test(input)) {
+                input.shrink(ingredient.count());
+                return input;
+            }
+        }
+
+        throw new RuntimeException("Tried to consume an invalid input. A recipe match check must not have been performed!");
+    }
+
     @Override
-    public List<ItemStack> getOutputs() {
-        return Collections.singletonList(result);
+    public List<List<ItemStack>> getAllInputs() {
+        List<List<ItemStack>> inputs = new ArrayList<>();
+        for (EnderIngredient ingredient : ingredients) {
+            inputs.add(Arrays.stream(ingredient.getItems()).toList());
+        }
+        return inputs;
+    }
+
+    @Override
+    public List<ItemStack> getAllOutputs() {
+        return List.of(result);
     }
 
     @Override
@@ -75,10 +98,10 @@ public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, 
                     matchArray[i] = true;
             }
 
-            for (Ingredient ingredient : ingredients) {
+            for (EnderIngredient ingredient : ingredients) {
                 if (ingredient.test(pContainer.getItem(i)))
                     matchArray[i] = true;
-                else if (ingredient == Ingredient.EMPTY && pContainer.getItem(i).isEmpty())
+                else if (ingredient == EnderIngredient.EMPTY && pContainer.getItem(i).isEmpty())
                     matchArray[i] = true;
             }
         }
@@ -122,9 +145,9 @@ public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, 
         public AlloySmeltingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             // Load ingredients
             JsonArray jsonIngredients = pSerializedRecipe.getAsJsonArray("ingredients");
-            List<EIOIngredient> ingredients = new ArrayList<>(jsonIngredients.size());
+            List<EnderIngredient> ingredients = new ArrayList<>(jsonIngredients.size());
             for (int i = 0; i < jsonIngredients.size(); i++) {
-                ingredients.add(i, EIOIngredient.fromJson(jsonIngredients.get(i)));
+                ingredients.add(i, EnderIngredient.fromJson(jsonIngredients.get(i).getAsJsonObject()));
             }
 
             // Load result, energy and experience.
@@ -155,7 +178,7 @@ public class AlloySmeltingRecipe implements IMachineRecipe<AlloySmeltingRecipe, 
 
         @Override
         public AlloySmeltingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            List<EIOIngredient> ingredients = pBuffer.readList(EIOIngredient::fromNetwork);
+            List<EnderIngredient> ingredients = pBuffer.readList(EnderIngredient::fromNetwork);
             ItemStack result = pBuffer.readItem();
             int energy = pBuffer.readInt();
             float experience = pBuffer.readFloat();

@@ -71,7 +71,7 @@ Download the latest JAR file from GitHub releases or from [CurseForge](https://w
 
 ### For Mod Developers
 
-EnderIO (along with EnderCore) is available via our maven.
+EnderIO is available via our maven.
 
 Update your `build.gradle` to contain the foillowing:
 
@@ -128,8 +128,3 @@ Below sounds are used under [CC BY 3.0](https://creativecommons.org/licenses/by/
 - https://freesound.org/people/LiamG_SFX/
 - https://freesound.org/people/kuchenanderung1/
 - https://freesound.org/people/170048@virtualwindow.co.za/
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

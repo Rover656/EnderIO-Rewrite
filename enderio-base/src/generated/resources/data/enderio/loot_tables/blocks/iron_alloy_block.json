@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "enderio:construction_alloy_block"
+          "name": "enderio:iron_alloy_block"
         }
       ],
       "conditions": [
