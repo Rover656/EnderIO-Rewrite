@@ -59,9 +59,7 @@ public abstract class MachineBlockEntity extends SyncedBlockEntity implements Me
         super(pType, pWorldPosition, pBlockState);
 
         // If the machine declares an inventory layout, use it to create a handler
-        getSlotLayout().ifPresent(layout -> {
-            itemHandlerMaster = createItemHandler(layout);
-        });
+        getSlotLayout().ifPresent(layout -> itemHandlerMaster = createItemHandler(layout));
 
         add2WayDataSlot(new EnumDataSlot<>(this::getRedstoneControl, this::setRedstoneControl, SyncMode.GUI));
         add2WayDataSlot(new NBTSerializableDataSlot<>(() -> ioConfig, SyncMode.WORLD, () -> {

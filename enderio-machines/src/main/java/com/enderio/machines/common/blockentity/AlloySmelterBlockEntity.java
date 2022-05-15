@@ -36,7 +36,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
 
     public static class Simple extends AlloySmelterBlockEntity {
         public Simple(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.Alloys, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.ALLOYS, MachineTier.SIMPLE, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -52,7 +52,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
 
     public static class Furnace extends AlloySmelterBlockEntity {
         public Furnace(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.Furnace, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.FURNACE, MachineTier.SIMPLE, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -68,7 +68,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
 
     public static class Standard extends AlloySmelterBlockEntity {
         public Standard(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.All, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.ALL, MachineTier.STANDARD, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -85,7 +85,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
     public static class Enhanced extends AlloySmelterBlockEntity {
         // TODO: Make it enhanced
         public Enhanced(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.All, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.ALL, MachineTier.ENHANCED, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -266,7 +266,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
             try {
                 mode = AlloySmelterMode.values()[pTag.getInt("mode")];
             } catch (IndexOutOfBoundsException ex) { // In case something happens in the future.
-                mode = AlloySmelterMode.All;
+                mode = AlloySmelterMode.ALL;
             }
         }
         resultModifier = pTag.getInt("result_modifier");

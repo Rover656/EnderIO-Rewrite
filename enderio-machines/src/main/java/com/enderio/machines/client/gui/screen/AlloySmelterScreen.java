@@ -47,11 +47,11 @@ public class AlloySmelterScreen extends EIOScreen<AlloySmelterMenu> {
     protected ResourceLocation getBackgroundImage() {
         AlloySmelterBlockEntity be = getMenu().getBlockEntity();
         return switch (be.getTier()) {
-            case SIMPLE -> be.getMode() == AlloySmelterMode.Alloys ? BG_TEXTURE_SIMPLE_ALLOY : BG_TEXTURE_SIMPLE_FURNACE;
+            case SIMPLE -> be.getMode() == AlloySmelterMode.ALLOYS ? BG_TEXTURE_SIMPLE_ALLOY : BG_TEXTURE_SIMPLE_FURNACE;
             case STANDARD, ENHANCED -> switch (be.getMode()) {
-                case All -> BG_TEXTURE_AUTO;
-                case Alloys -> BG_TEXTURE_ALLOY;
-                case Furnace -> BG_TEXTURE_FURNACE;
+                case ALL -> BG_TEXTURE_AUTO;
+                case ALLOYS -> BG_TEXTURE_ALLOY;
+                case FURNACE -> BG_TEXTURE_FURNACE;
             };
         };
     }

@@ -124,8 +124,8 @@ public class CapacitorUtil {
         // Discover all capacitors again.
         event.getRecipeManager()
             .getAllRecipesFor(EIORecipes.Types.CAPACITOR_DATA)
-            .forEach(capacitorDataRecipe -> {
-                lookup.put(capacitorDataRecipe.getCapacitorItem(), capacitorDataRecipe.getCapacitorData());
-            });
+            .forEach(capacitorDataRecipe ->
+                lookup.put(capacitorDataRecipe.getCapacitorItem(), capacitorDataRecipe.getCapacitorData())
+            );
     }
 }

@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 
 public class EIOLang {
-    private static Registrate REGISTRATE = EnderIO.registrate();
+    private static final Registrate REGISTRATE = EnderIO.registrate();
 
     public static final Component BLOCK_BLAST_RESISTANT = TooltipUtil.style(REGISTRATE.addLang("tooltip", EnderIO.loc("block.blast_resistant"), "Blast resistant"));
 

@@ -6,6 +6,7 @@ import com.enderio.base.common.capability.capacitor.CapacitorSpecializations;
 import com.enderio.base.common.capability.capacitor.ICapacitorData;
 import com.enderio.base.common.util.CapacitorUtil;
 import com.enderio.base.common.util.UseOnly;
+import com.enderio.machines.common.MachineTier;
 import com.enderio.machines.common.blockentity.data.sidecontrol.item.ItemSlotLayout;
 import com.enderio.machines.common.blockentity.sync.EnergyData;
 import com.enderio.machines.common.blockentity.sync.MachineEnergyDataSlot;
@@ -86,10 +87,9 @@ public abstract class PoweredMachineEntity extends MachineBlockEntity {
 
     public boolean hasCapacitor() {
         return getSlotLayout()
-            .map(layout -> layout
-                .getFirst(ItemSlotLayout.SlotType.CAPACITOR)
-                .map(slot -> CapacitorUtil.isCapacitor(getItemHandler().getStackInSlot(slot)))
-                .orElse(false))
+            .flatMap(layout -> layout
+                .getFirst(ItemSlotLayout.SlotType.CAPACITOR))
+            .map(slot -> CapacitorUtil.isCapacitor(getItemHandler().getStackInSlot(slot)))
             .orElse(false);
     }
 
