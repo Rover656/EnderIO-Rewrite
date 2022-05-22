@@ -2,19 +2,19 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "ingredient": {
+      "items": {
         "item": "enderio:dark_steel_bars"
       },
       "count": 1
     },
     {
-      "ingredient": {
+      "items": {
         "item": "minecraft:clay_ball"
       },
       "count": 1
     },
     {
-      "ingredient": {
+      "items": {
         "item": "minecraft:string"
       },
       "count": 4

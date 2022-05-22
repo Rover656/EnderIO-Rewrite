@@ -2,7 +2,7 @@
   "type": "enderio_machines:alloy_smelting",
   "ingredients": [
     {
-      "ingredient": {
+      "items": {
         "item": "enderio:ender_pearl_powder"
       },
       "count": 9

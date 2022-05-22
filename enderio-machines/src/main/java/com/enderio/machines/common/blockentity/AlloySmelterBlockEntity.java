@@ -36,7 +36,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
 
     public static class Simple extends AlloySmelterBlockEntity {
         public Simple(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.ALLOYS, MachineTier.SIMPLE, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.ALLOYS, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -52,7 +52,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
 
     public static class Furnace extends AlloySmelterBlockEntity {
         public Furnace(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.FURNACE, MachineTier.SIMPLE, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.FURNACE, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -68,7 +68,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
 
     public static class Standard extends AlloySmelterBlockEntity {
         public Standard(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.ALL, MachineTier.STANDARD, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.ALL, pType, pWorldPosition, pBlockState);
         }
 
         @Override
@@ -85,7 +85,7 @@ public abstract class AlloySmelterBlockEntity extends PoweredCraftingMachineEnti
     public static class Enhanced extends AlloySmelterBlockEntity {
         // TODO: Make it enhanced
         public Enhanced(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
-            super(AlloySmelterMode.ALL, MachineTier.ENHANCED, pType, pWorldPosition, pBlockState);
+            super(AlloySmelterMode.ALL, pType, pWorldPosition, pBlockState);
         }
 
         @Override

@@ -9,6 +9,10 @@ public interface IMachineRecipe<R extends IMachineRecipe<R, C>, C extends Contai
     default String getOwningMod() {
         return EIOMachines.MODID;
     }
-
     int getEnergyCost();
+
+    @Override
+    default boolean isSpecial() {
+        return true;
+    }
 }
