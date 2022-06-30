@@ -14,6 +14,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> NUTRIENT_DISTILLATION = basicFluid("nutrient_distillation")
         .properties(p -> p.density(1500).viscosity(3000))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -21,6 +22,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> DEW_OF_THE_VOID = basicFluid("dew_of_the_void")
         .properties(p -> p.density(200).viscosity(1000).temperature(175))
+        .addLayer(() -> RenderType::translucent)
         .lang("Fluid of the Void")
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
@@ -29,6 +31,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> VAPOR_OF_LEVITY = basicFluid("vapor_of_levity")
         .properties(p -> p.density(-10).viscosity(100).temperature(5)) // TODO: 1.19: gaseous?
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -36,6 +39,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> HOOTCH = basicFluid("hootch")
         .properties(p -> p.density(900).viscosity(1000))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -43,6 +47,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> ROCKET_FUEL = basicFluid("rocket_fuel")
         .properties(p -> p.density(900).viscosity(1000))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -50,6 +55,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> FIRE_WATER = basicFluid("fire_water")
         .properties(p -> p.density(900).viscosity(1000).temperature(2000))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -57,6 +63,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> XP_JUICE = basicFluid("xp_juice")
         .properties(p -> p.lightLevel(10).density(800).viscosity(1500))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -64,6 +71,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> LIQUID_SUNSHINE = basicFluid("liquid_sunshine")
         .properties(p -> p.density(200).viscosity(400))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -71,6 +79,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> CLOUD_SEED = basicFluid("cloud_seed")
         .properties(p -> p.density(500).viscosity(800))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -78,6 +87,7 @@ public class EIOFluids {
 
     public static final FluidEntry<? extends ForgeFlowingFluid> CLOUD_SEED_CONCENTRATED = basicFluid("cloud_seed_concentrated")
         .properties(p -> p.density(1000).viscosity(1200))
+        .addLayer(() -> RenderType::translucent)
         .bucket()
         .tab(() -> EIOCreativeTabs.MAIN)
         .build()
@@ -86,10 +96,7 @@ public class EIOFluids {
     private static FluidBuilder<? extends ForgeFlowingFluid, Registrate> basicFluid(String name) {
         return REGISTRATE.fluid(name, EnderIO.loc("block/fluid_" + name + "_still"),
             EnderIO.loc("block/fluid_" + name + "_flowing"))
-            .source(ForgeFlowingFluid.Source::new)
-            .block()
-            .addLayer(() -> RenderType::translucent)
-            .build();
+            .source(ForgeFlowingFluid.Source::new);
     }
 
     public static void register() {}

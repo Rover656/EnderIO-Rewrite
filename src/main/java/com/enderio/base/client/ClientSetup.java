@@ -22,26 +22,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
 
-    // TODO: Add Fluid renderLayer support to Registrate?
-    @SubscribeEvent
-    public static void setRenderLayers(FMLClientSetupEvent event) {
-        configureFluid(EIOFluids.NUTRIENT_DISTILLATION);
-        configureFluid(EIOFluids.DEW_OF_THE_VOID);
-        configureFluid(EIOFluids.VAPOR_OF_LEVITY);
-        configureFluid(EIOFluids.HOOTCH);
-        configureFluid(EIOFluids.ROCKET_FUEL);
-        configureFluid(EIOFluids.FIRE_WATER);
-        configureFluid(EIOFluids.XP_JUICE);
-        configureFluid(EIOFluids.LIQUID_SUNSHINE);
-        configureFluid(EIOFluids.CLOUD_SEED);
-        configureFluid(EIOFluids.CLOUD_SEED_CONCENTRATED);
-    }
-
-    private static void configureFluid(FluidEntry<? extends ForgeFlowingFluid> fluidEntry) {
-        ItemBlockRenderTypes.setRenderLayer(fluidEntry.get(), RenderType.translucent());
-        ItemBlockRenderTypes.setRenderLayer(fluidEntry.get().getSource(), RenderType.translucent());
-    }
-
     @SubscribeEvent
     public static void customModelLoaders(ModelRegistryEvent event) {
         ModelLoaderRegistry.registerLoader(EnderIO.loc("composite_model"), new CompositeModelLoader());
