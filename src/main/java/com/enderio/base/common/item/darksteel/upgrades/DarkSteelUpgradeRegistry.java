@@ -13,6 +13,11 @@ import net.minecraft.world.item.ItemStack;
 import java.util.*;
 import java.util.function.Supplier;
 
+/**
+ * This will be replaced with a normal forge registry.
+ * Will be swapped once a strategy is decided for a data oriented way of representing what upgrades apply to what tools.
+ */
+@Deprecated(forRemoval = true, since = "1.19.4")
 public final class DarkSteelUpgradeRegistry {
 
     public static final String UPGRADE_PREFIX = EnderIO.MODID + ".darksteel.upgrade.";
